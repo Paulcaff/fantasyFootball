@@ -23,8 +23,7 @@ import javax.swing.*;
 public class JavaCouchDB {
     public static void main(String[] args) throws MalformedURLException {
        JavaCouchDB javaCouchDB = new JavaCouchDB();
-       updateDocument("4e64de39eb0fe560d23590e0d902c7c9","Paul","Defender",27,6,12,4,3);
-
+       GuiHomepage guiHomepage = new GuiHomepage();
    }
 
     public void createDocument(String team,String name, String position, int age, float price, int goals, int assists, int cleanSheets ) throws MalformedURLException {
@@ -41,6 +40,7 @@ public class JavaCouchDB {
         Player player = new Player(name,position,age,price,goals,assists,cleanSheets);
 
         map.put("team: "+team,player);
+
 
         db.create(map);
     }
@@ -153,7 +153,6 @@ public class JavaCouchDB {
             System.out.print( teamName + "'s Squad Size = "+r.getRows().get(0).getValueAsInt());
             return r.getRows().get(0).getValueAsInt();
         }
-
     }
 
     public String getPlayerByPosition(String position) throws MalformedURLException {
@@ -191,11 +190,10 @@ public class JavaCouchDB {
                 .password("paul3112")
                 .build();
         CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
-
         CouchDbConnector db = new StdCouchDbConnector("fantasyfootball", dbInstance);
         db.createDatabaseIfNotExists();
-
         ViewQuery query = new ViewQuery().designDocId("_design/Team").dbPath(db.path()).viewName("byTeam");
+        System.out.println(query.toString());
         query.key(team);
         ViewResult r = db.queryView(query);
         String players = "";

@@ -11,6 +11,7 @@ public class getSquadSize {
     private JLabel SelectTeamLabel;
     private JLabel resultLabel;
     private JButton submitButton;
+    private JLabel squadSizeLabel;
 
     public getSquadSize(){
         JFrame frame = new JFrame("Fantasy Football");

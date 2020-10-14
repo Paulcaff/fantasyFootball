@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
 
 public class GuiHomepage {
     private JPanel Mainview;
@@ -62,7 +61,7 @@ public class GuiHomepage {
         AddPlayerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
-                addPlayer addPlayer = new addPlayer();
+                addTeamAndPlayer addTeamAndPlayer = new addTeamAndPlayer();
             }
         });
 

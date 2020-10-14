@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 
-public class addPlayer {
+public class addTeamAndPlayer {
     private JPanel Mainview;
     private JLabel topLabel;
     private JLabel teamLabel;
@@ -25,11 +25,11 @@ public class addPlayer {
     private JTextField cleansheetTextfield;
     private JButton AddButton;
 
-    addPlayer(){
+    addTeamAndPlayer(){
         JFrame frame = new JFrame("Fantasy Football");
         frame.setContentPane(Mainview);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(1300,400));
+        frame.setPreferredSize(new Dimension(600,400));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -49,7 +49,7 @@ public class addPlayer {
                 JavaCouchDB javaCouchDB = new JavaCouchDB();
                 try {
                     javaCouchDB.createDocument(team,name,position,age,price,goals,assists,cleansheets);
-                    JOptionPane.showMessageDialog(null,name+" added to CouchDB");
+                    JOptionPane.showMessageDialog(null,team +"and player ("+ name+") added to CouchDB");
 
                 } catch (MalformedURLException malformedURLException) {
                     malformedURLException.printStackTrace();
